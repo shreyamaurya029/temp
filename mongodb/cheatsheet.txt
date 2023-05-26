@@ -1,0 +1,112 @@
+1. view all databases
+show dbs
+
+
+2. create new database
+use database 
+
+
+3. view current database
+db
+
+4. delete database
+db.dropDatabase()
+
+
+5. view collection 
+show collections
+
+
+6. create collection named 'comments'
+db.createCollection('commments')
+
+7. delete a collection named 'comments'
+db.comments.drop()
+
+
+## MongoDB command for rows ##
+
+
+
+1. show all rows in the collection
+db.comments.find()
+ 
+
+
+2. Insert one row
+db.comments.insert({
+    'name': 'Harry',
+    'lang': 'JS',
+    'member_since':5
+})
+
+
+
+3. Insert many row
+db.comments.insertMany([
+    {
+    'name': 'Harry',
+    'lang': 'JS',
+    'member_since':5
+    },
+    {
+    'name': 'Harry',
+    'lang': 'c++',
+    'member_since':5
+    },
+    {
+    'name': 'Harry',
+    'lang': 'python',
+    'member_since':5
+    }
+])
+
+
+
+4. show all rows in the collection
+db.comments.find().pretty()
+
+
+5. Search in a mongoDb database
+db.comments.find({'lang': 'python'})
+
+6. limit the number of row in output
+db.comments.find().pretty().limit(3)
+
+7. count the number of rows in the output
+db.comments.find().count()
+
+8.Find tye first row matching the object
+db.comments.findOne({'lang': 'python'})
+
+9.Update a row
+db.comments.update({name: 'Harry'},
+{
+    'name': 'Harry',
+    'lang': 'JS',
+    'member_since':51
+})
+
+10. mongodb increment operator
+db.comments.update({name: 'shubham'},
+{$inc:{
+    member_since: 2
+}})
+
+
+11. mongodb rename operator
+db.comments.update({name: 'shubham'},
+{$rename:{
+    member_since: 2
+}})
+
+
+12. delete row
+db.comments.remove({name: 'harry' })
+
+13. less than
+db.comments.find({member_since: {$lt: 90}})
+
+
+
+
